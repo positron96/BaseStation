@@ -41,6 +41,10 @@ struct RegisterList{
   Register *maxLoadedReg;
   Register *nextReg;
   Packet  *tempPacket;
+  /* how many 58us periods needed for half-cycle (1 for "1", 2 for "0") */
+  byte timerPeriods;
+  /* how many 58us periods left (at start, 2 for "1", 4 for "0"). */
+  byte timerPeriodsLeft;
   byte currentBit;
   byte nRepeat;
   int *speedTable;

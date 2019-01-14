@@ -30,8 +30,8 @@ Part of DCC++ BASE STATION for the Arduino
 
   #define ARDUINO_TYPE    "UNO"
 
-  #define DCC_SIGNAL_PIN_MAIN 10          // Ardunio Uno  - uses OC1B
-  #define DCC_SIGNAL_PIN_PROG 5           // Arduino Uno  - uses OC0B
+  #define DCC_SIGNAL_PIN_MAIN 10
+  #define DCC_SIGNAL_PIN_PROG 5 
 
   #if COMM_INTERFACE != 0                 // Serial was not selected
 
@@ -43,8 +43,8 @@ Part of DCC++ BASE STATION for the Arduino
 
   #define ARDUINO_TYPE    "MEGA"
 
-  #define DCC_SIGNAL_PIN_MAIN 12          // Arduino Mega - uses OC1B
-  #define DCC_SIGNAL_PIN_PROG 2           // Arduino Mega - uses OC3B
+  #define DCC_SIGNAL_PIN_MAIN 12
+  #define DCC_SIGNAL_PIN_PROG 2 
 
 #else
 
@@ -126,7 +126,7 @@ Part of DCC++ BASE STATION for the Arduino
 //    CSUM: a checksum byte that is required to be the final byte in any DCC packet
 //    REPEAT: the number of times the DCC packet was re-transmitted to the tracks after its iniital transmission
  
-#define SHOW_PACKETS  0       // set to zero to disable printing of every packet for select main operations track commands
+#define SHOW_PACKETS  1       // set to zero to disable printing of every packet for select main operations track commands
 
 /////////////////////////////////////////////////////////////////////////////////////
 
