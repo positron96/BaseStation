@@ -280,10 +280,12 @@ void setup(){
   DCC_SIGNAL_PORTIN_MAIN = portInputRegister(digitalPinToPort(DCC_SIGNAL_PIN_MAIN));
   DCC_SIGNAL_PORTIN_PROG = portInputRegister(digitalPinToPort(DCC_SIGNAL_PIN_PROG));
 
+  //Serial.println(String("Port:")+digitalPinToPort(DCC_SIGNAL_PIN_MAIN)+", mask "+DCC_SIGNAL_PORTMASK_MAIN);
+
   pinMode(DCC_SIGNAL_PIN_MAIN, OUTPUT);
   pinMode(DCC_SIGNAL_PIN_PROG, OUTPUT);
 
-  pinMode(SIGNAL_ENABLE_PIN_MAIN, OUTPUT);   // master enable for motor channel A  
+  pinMode(SIGNAL_ENABLE_PIN_MAIN, OUTPUT);
   pinMode(SIGNAL_ENABLE_PIN_PROG, OUTPUT); 
 
   /*
@@ -383,13 +385,14 @@ void setup(){
   }                                              \
   if(R.timerPeriodsLeft == 0) {                  \
     *DCC_SIGNAL_PORTIN_ ## N = DCC_SIGNAL_PORTMASK_ ## N; \
-    DCC_NEXT_BIT(mainRegs, N);                   \
+    DCC_NEXT_BIT(R, N);                   \
   }                                              \
 
 // NOW USE THE ABOVE MACRO TO CREATE THE CODE FOR EACH INTERRUPT
 
 ISR(TIMER2_COMPA_vect) { 
   //*DCC_SIGNAL_PORTIN_MAIN = DCC_SIGNAL_PORTMASK_MAIN;
+  //PORTD ^= _BV(2);
   CHECK_TIMER_PERIOD(mainRegs, MAIN)
   CHECK_TIMER_PERIOD(progRegs, PROG)
 }

@@ -82,10 +82,24 @@ Part of DCC++ BASE STATION for the Arduino
   #define DIRECTION_MOTOR_CHANNEL_PIN_A 7
   #define DIRECTION_MOTOR_CHANNEL_PIN_B 8
 
+#elif MOTOR_SHIELD_TYPE == 2
+
+  #define MOTOR_SHIELD_NAME "CUSTOM OUTPUT"
+
+  #define DCC_SIGNAL_PIN_MAIN 2
+  #define DCC_SIGNAL_PIN_PROG 4
+  
+  #define SIGNAL_ENABLE_PIN_MAIN 3
+  #define SIGNAL_ENABLE_PIN_PROG 5
+
+  #define CURRENT_MONITOR_PIN_MAIN A0
+  #define CURRENT_MONITOR_PIN_PROG A1
+
+  #define DIRECTION_MOTOR_CHANNEL_PIN_A DCC_SIGNAL_PIN_MAIN
+  #define DIRECTION_MOTOR_CHANNEL_PIN_B DCC_SIGNAL_PIN_PROG
+
 #else
-
-  #error CANNOT COMPILE - PLEASE SELECT A PROPER MOTOR SHIELD TYPE
-
+  #error "Unknown MOTOR_SHIELD_TYPE or not set"
 #endif
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -126,7 +140,7 @@ Part of DCC++ BASE STATION for the Arduino
 //    CSUM: a checksum byte that is required to be the final byte in any DCC packet
 //    REPEAT: the number of times the DCC packet was re-transmitted to the tracks after its iniital transmission
  
-#define SHOW_PACKETS  1       // set to zero to disable printing of every packet for select main operations track commands
+#define SHOW_PACKETS  0       // set to zero to disable printing of every packet for select main operations track commands
 
 /////////////////////////////////////////////////////////////////////////////////////
 
